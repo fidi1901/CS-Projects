@@ -18,10 +18,6 @@
 #==========================================
 import tkinter as tk
 import random
-from pygame import mixer
-mixer.init()
-mixer.music.load('Naruto Shippuden OST 2 - Track 02 - Rinkai ( Critical state ).mp3')
-mixer.music.play()
 class SnakeGUI:
     def __init__(self):
         self.win = tk.Tk()

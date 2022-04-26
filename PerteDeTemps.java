@@ -117,8 +117,8 @@ class Tableau {
             }
             else{
                 p = c2.getRank();
-                c1 = c2;
             }
+            c1 = c2;
         }
     }
 }
@@ -163,7 +163,6 @@ class Pile {
 class Deck {
     private Card[] deck;
     private int front = -1;
-    Random r = new Random();
     private boolean dealt;
 
     public Deck() {
@@ -187,13 +186,14 @@ class Deck {
         }
     }
     public void shuffle(){
+        Random r = new Random();
         Card var;
         if (dealt){
             throw new IllegalStateException("Cards dealt already, cannot shuffle into deck");
         }
         else{
-            for (int i = 51; i >= 1; i--){
-                int j = Math.abs(r.nextInt()) % i;
+            for (int i = deck.length-1; i >= 1; i--){
+                int j = Math.abs(r.nextInt()) % (i+1);
                 var = deck[j];
                 deck[j] = deck[i];
                 deck[i] = var;
